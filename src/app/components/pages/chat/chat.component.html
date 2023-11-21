@@ -1,0 +1,43 @@
+<div class="container-principal">
+    <div class="container-add-user-group">
+        <a (click)="mostrarDiv('add-user')" class="btn-add-user">
+            <img class="icone-add-user" 
+            src="assets\icons\adicionar-usuario.png" 
+            alt="ícone adicionar usuário"/>
+            Adicionar usuário
+        </a>
+        
+        <a (click)="mostrarDiv('add-group')" class="btn-add-group">
+            <img class="icone-add-group" 
+            src="assets\icons\adicionar-grupo.png" 
+            alt="ícone criar grupo"/>
+            Criar grupo
+        </a>
+
+        <div class="container-add-user" id="add-user" *ngIf="opcaoEscolhida === 'add-user'">
+            <div class="container-info-user">
+                <form (ngSubmit)="adicionarUser()" [formGroup]="user" #formDir="ngForm">
+                    <label for="nome" class="text-nome-user">Nome do usuário:</label> <br>
+                    <input type="text" id="nome" class="campo-nome-user" formControlName="nomeUsuario"/>
+                    <div *ngIf="nomeUsuario.invalid && formDir.submitted" class="erro-validacao">
+                        <p *ngIf="nomeUsuario.errors?.['required']">Nome de usuário obrigatório.</p>
+                    </div>
+                    <button type="submit" class="btn-salvar">Salvar</button>
+                </form>
+            </div>
+
+            <div class="container-contatos">
+                <ul>
+                    <li *ngFor="let usuario of conversasService.retornaContatos()" class="contatos">{{usuario}}</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container-add-user" id="add-group" *ngIf="opcaoEscolhida === 'add-group'">
+
+        </div>
+    </div>
+</div>
+
+
+

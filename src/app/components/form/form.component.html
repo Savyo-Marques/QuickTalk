@@ -1,0 +1,44 @@
+
+<div class="container-principal">
+    <form (ngSubmit)="cadastrarDados()" [formGroup]="userForm" #formDir="ngForm"> 
+        <input type="hidden" formControlName="id"/>
+            <div>
+                <input type="text" id="nome" placeholder="Nome" formControlName="nome" autocomplete="cc-given-name">
+                <div *ngIf="nome.invalid && formDir.submitted " class="erro-validacao">
+                    <p *ngIf="nome.errors?.['required']">Nome é obrigatório!</p>
+                    <p *ngIf="nome.errors?.['minlength']">Deve conter mais que 5 caracteres, letras maiúscula ou minúscula!</p>
+                </div>
+            </div>
+    
+            <div>
+                <input type="password" id="senha" placeholder="Senha" formControlName="senha" autocomplete="current-password">
+                <div *ngIf="senha.invalid && formDir.submitted" class="erro-validacao">
+                    <p *ngIf="senha.errors?.['required']">Senha é obrigatória!</p>
+                    <p *ngIf="senha.errors?.['minlength']">Deve conter no mínimo 8 caracteres!</p>
+                </div>
+            </div>
+        
+            <div>
+                <input type="email" id="email" placeholder="Email" formControlName="email" autocomplete="email">
+                <div *ngIf="email.invalid && formDir.submitted" class="erro-validacao">
+                    <p *ngIf="email.errors?.['required']">Email é obrigatório!</p>
+                    <p *ngIf="email.errors?.['email']">Email inválido!</p>
+                </div>
+            </div>
+    
+            <div>
+                <textarea id="descricao" placeholder="Descrição" formControlName="descricao"></textarea>
+                <div *ngIf="descricao.invalid && formDir.submitted" class="erro-validacao">
+                    <p *ngIf="descricao.errors?.['required']">Descrição é obrigatória!</p>
+                    <p *ngIf="descricao.errors?.['minlength']">Deve conter no mínimo 5 caracteres!</p>
+                </div>
+            </div>
+        
+            <div>
+                <input type="file" (change)="fileSelecionado($event)" autocomplete="photo">
+            </div>
+        
+            <input type="submit" value="{{ btnValue }}">
+        
+    </form>
+</div>

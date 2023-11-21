@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+
+.custom-toastr-message {
+    position: fixed;
+    top: 40%;
+    right: 20px;
+    transform: translateY(-50%);
+    background-color: #6f42c1; /* Cor roxa */
+    color: #fff; /* Cor do texto */
+    padding: 10px;
+    border-radius: 10px; /* Borda arredondada */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Efeito de sombra */
+}
+

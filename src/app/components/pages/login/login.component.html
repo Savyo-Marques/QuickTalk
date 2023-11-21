@@ -1,0 +1,26 @@
+<div class="login-container">
+    <h1>Login</h1>
+    <form (ngSubmit)="efetuarLogin()" [formGroup]="loginForm" #formDir="ngForm">
+        <div>
+            <label for="nomeUsuario">Email:</label> <br>
+            <input type="email" id="nomeUsuario" formControlName="usuario" autocomplete="username">
+            <div *ngIf="usuario.invalid && formDir.submitted" class="erro-validacao">
+                <p *ngIf="usuario.errors?.['required']">Email obrigatório!</p>
+                <p *ngIf="usuario.errors?.['email']">Email inválido!</p>
+            </div>
+        </div>
+
+        <div>
+            <label for="senha">Senha:</label> <br>
+            <input type="password" id="senha" formControlName="senha" autocomplete="current-password">
+            <div *ngIf="senha.invalid && formDir.submitted" class="erro-validacao">
+                <p *ngIf="senha.errors?.['required']">Senha é obrigatória!</p>
+                <p *ngIf="senha.errors?.['minlength']">Deve conter no mínimo 8 caracteres!</p>
+            </div>
+        </div>
+
+        <button type="submit" class="btn-logar">Logar</button> 
+    </form>
+    <a [routerLink]="['cadastrar']">Cadastre-se</a>
+</div>
+

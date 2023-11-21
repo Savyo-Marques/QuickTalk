@@ -1,0 +1,17 @@
+<div >
+    <h1>Perfil</h1>
+    <img
+        [src]="userForm.avatar"
+        alt="Foto do usuário"
+    />
+    <app-form 
+        (onSubmit)="editarDados($event)" 
+        [form]="userForm" 
+        [btnValue]="btnValor">
+    </app-form>
+    <button type="button" 
+            class="btn-delete" 
+            (click)="deletarConta(userForm.id!)">
+            Deletar Conta
+    </button>
+</div>

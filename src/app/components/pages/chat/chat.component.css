@@ -1,0 +1,107 @@
+a:hover{
+    cursor: pointer;
+}
+
+.container-principal{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    background-color: #6B3FA0;
+    border-radius: 20px;
+    width: 23%;
+    height: 620px;
+    margin-top: 5%;
+    overflow-y: auto;
+}
+
+.container-add-user-group{
+    position: relative;
+    align-items: center;
+    background-color: white;
+    border-radius: 20px;
+    width: 95%;
+    height: 9%;
+    margin-top: 3%;
+}
+
+.btn-add-group,
+.btn-add-user{
+    font-size: 14px;
+}
+
+.icone-add-group{
+    max-width: 11%;
+    margin-left: 10%;
+    margin-top: 2%;
+}
+
+.icone-add-user{
+    max-width: 9%;
+    margin-left: 6%;
+    margin-top: 2%;
+}
+
+.container-add-group,
+.container-add-user{
+    display: flex;
+    position: relative;
+    background-color: white;
+    width: 95%;
+    height: 200%;
+    margin-top: 5%;
+    margin-left: 3%;
+    border-radius: 20px;
+}
+
+.container-info-user{
+    position: relative;
+    margin-left: 10%;
+    margin-top: 3%;
+}
+
+.text-nome-user{
+    position: absolute;
+    font-size: 15px;
+    margin-left: 3%;
+}
+
+.campo-nome-user{
+    width: 95%;
+    border-radius: 15px;
+    margin-top: 4%;
+}
+
+.erro-validacao{
+    position: absolute;
+    font-size: 10px;
+    color: red;
+    top: 43%;
+    margin-top: 1%;
+    margin-left: 3%;
+    
+}
+
+.btn-salvar{
+    background-color: green;
+    color: rgb(242, 233, 233);
+    border-radius: 30px;
+    width: 40%;
+    height: 25px;
+    margin-top: 10%;
+    margin-left: 40%;
+}
+
+.container-contatos{
+    position: absolute;
+    text-align: center;
+    top: 100%;
+}
+
+.contatos{
+    background-color: white;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 5px 0;
+
+    list-style-type: none; 
+}
