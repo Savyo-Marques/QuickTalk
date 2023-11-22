@@ -29,10 +29,100 @@ a:hover{
     font-size: 14px;
 }
 
+/**Css: Grupos**/
 .icone-add-group{
     max-width: 11%;
     margin-left: 10%;
     margin-top: 2%;
+}
+
+.text-nome-participantes{
+    position: absolute;
+    font-size: 15px;
+    margin-left: 3%;
+    margin-top: -4%;
+}
+
+.text-nome-grupo{
+    position: absolute;
+    font-size: 15px;
+    margin-left: 3%;
+}
+
+.container-info-grupo{
+    position: absolute;
+    margin-left: 10%;
+    margin-top: 4%;
+}
+
+.campo-nome-participantes,
+.campo-nome-grupo{
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    padding: 0.5em;
+    width: 90%;
+    margin-top: 2.5%;
+    background-color: #ffffff;
+    box-shadow: inset 3px 3px 10px rgba(0,0,0,0.3);
+    transition: 300ms ease-in-out;
+}
+
+.container-add-group{
+    display: flex;
+    position: relative;
+    background-color: white;
+    width: 95%;
+    height: 350%;
+    margin-top: 5%;
+    margin-left: 3%;
+    border-radius: 20px;
+}
+
+.btn-criar-grupo{
+    background-color: rgb(8, 165, 8);
+    color: white;
+    border-radius: 10em;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 0.5em 2em;
+    margin-top: 7%;
+    margin-left: 18%;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    border: 1px solid black;
+    box-shadow: 0 0 0 0 black;
+}
+
+.erro-validacao-grupo{
+    position: absolute;
+    font-size: 10px;
+    color: red;
+    top: 23%;
+    margin-top: 2%;
+    margin-left: 3%;
+}
+
+.erro-validacao-participantes{
+    position: absolute;
+    font-size: 10px;
+    color: red;
+    top: 64%;
+    margin-top: 2%;
+    margin-left: 3%;
+}
+
+
+/**Css: Contatos**/
+.container-add-user{
+    display: flex;
+    position: relative;
+    background-color: white;
+    width: 95%;
+    height: 210%;
+    margin-top: 5%;
+    margin-left: 3%;
+    border-radius: 20px;
 }
 
 .icone-add-user{
@@ -41,54 +131,34 @@ a:hover{
     margin-top: 2%;
 }
 
-.container-add-group,
-.container-add-user{
-    display: flex;
-    position: relative;
-    background-color: white;
-    width: 95%;
-    height: 200%;
-    margin-top: 5%;
-    margin-left: 3%;
-    border-radius: 20px;
+.container-info-user{
+    position: absolute;
+    margin-left: 9%;
+    margin-top: 3%;
 }
 
-.container-info-user{
-    position: relative;
-    margin-left: 10%;
-    margin-top: 3%;
+.campo-nome-user{
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    padding: 0.5em;
+    width: 90%;
+    margin-top: 2.5%;
+    background-color: #ffffff;
+    box-shadow: inset 3px 3px 10px rgba(0,0,0,0.3);
+    transition: 300ms ease-in-out;
+}
+
+.campo-nome-user:focus {
+    background-color: white;
+    transform: scale(1.05);
+    box-shadow: 13px 13px 100px #efecec,
 }
 
 .text-nome-user{
     position: absolute;
     font-size: 15px;
     margin-left: 3%;
-}
-
-.campo-nome-user{
-    width: 95%;
-    border-radius: 15px;
-    margin-top: 4%;
-}
-
-.erro-validacao{
-    position: absolute;
-    font-size: 10px;
-    color: red;
-    top: 43%;
-    margin-top: 1%;
-    margin-left: 3%;
-    
-}
-
-.btn-salvar{
-    background-color: green;
-    color: rgb(242, 233, 233);
-    border-radius: 30px;
-    width: 40%;
-    height: 25px;
-    margin-top: 10%;
-    margin-left: 40%;
 }
 
 .container-contatos{
@@ -102,6 +172,63 @@ a:hover{
     border-radius: 10px;
     padding: 5px;
     margin: 5px 0;
-
     list-style-type: none; 
 }
+
+.lista-abaixo{
+    margin-top: 40%;
+}
+
+.btn-salvar{
+    background-color: rgb(8, 165, 8);
+    color: white;
+    border-radius: 10em;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 0.5em 2em;
+    margin-top: 7%;
+    margin-left: 33%;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    border: 1px solid black;
+    box-shadow: 0 0 0 0 black;
+}
+
+.erro-validacao-contato{
+    position: absolute;
+    font-size: 10px;
+    color: red;
+    top: 40%;
+    margin-top: 2%;
+    margin-left: 3%;
+}
+
+
+/**Css: Conjunto**/
+.btn-criar-grupo:hover,
+.btn-salvar:hover {
+    transform: translateY(-4px) translateX(-2px);
+    box-shadow: 2px 5px 0 0 black;
+}
+
+.btn-criar-grupo:active,
+.btn-salvar:active {
+    transform: translateY(2px) translateX(1px);
+    box-shadow: 0 0 0 0 black;
+}
+
+
+/**Demais Css:**/
+.btn-fechar{
+    position: relative;
+}
+
+#icone-fechar{
+    cursor: pointer;
+    position: fixed;
+    left: 20%;
+    width: 1.1%;
+}
+
+
+

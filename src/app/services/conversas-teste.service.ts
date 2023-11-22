@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, delay, of, timeout } from 'rxjs';
+import { Observable, delay, of } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
@@ -16,7 +16,7 @@ export class ConversasTesteService {
 
     addUser(contato: string): Observable<any>{
         this.listaUser.push(contato)
-        return of({ success: true }).pipe(delay(500), timeout(5000));
+        return of({ success: true }).pipe(delay(500));
     }
 
     retornaContatos(): string[]{

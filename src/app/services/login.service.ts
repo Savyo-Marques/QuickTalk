@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class LoginService {
     private baseUrl = 'http://localhost:8080'
-    private url = `${this.baseUrl}/`
+    private url = `${this.baseUrl}/usuario/login`
 
     /**
      * Construtor do serviço LoginService.

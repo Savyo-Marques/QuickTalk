@@ -1,4 +1,5 @@
 <div class="container-principal">
+    <!--Opções-->
     <div class="container-add-user-group">
         <a (click)="mostrarDiv('add-user')" class="btn-add-user">
             <img class="icone-add-user" 
@@ -6,7 +7,6 @@
             alt="ícone adicionar usuário"/>
             Adicionar usuário
         </a>
-        
         <a (click)="mostrarDiv('add-group')" class="btn-add-group">
             <img class="icone-add-group" 
             src="assets\icons\adicionar-grupo.png" 
@@ -14,28 +14,60 @@
             Criar grupo
         </a>
 
+        <!--Contatos-->
         <div class="container-add-user" id="add-user" *ngIf="opcaoEscolhida === 'add-user'">
-            <div class="container-info-user">
+            <div class="container-info-user" >
+                <div class="btn-fechar">
+                    <img src="assets\icons\fechar-simbolo.png" 
+                    alt="Ícone fechar"
+                    id="icone-fechar"
+                    (click)="fecharDiv()"/>
+                    
+                </div>
                 <form (ngSubmit)="adicionarUser()" [formGroup]="user" #formDir="ngForm">
                     <label for="nome" class="text-nome-user">Nome do usuário:</label> <br>
                     <input type="text" id="nome" class="campo-nome-user" formControlName="nomeUsuario"/>
-                    <div *ngIf="nomeUsuario.invalid && formDir.submitted" class="erro-validacao">
-                        <p *ngIf="nomeUsuario.errors?.['required']">Nome de usuário obrigatório.</p>
+                    <div *ngIf="nomeUsuario.invalid && formDir.submitted" class="erro-validacao-contato">
+                        <p *ngIf="nomeUsuario.errors?.['required']">Nome do usuário obrigatório.</p>
                     </div>
                     <button type="submit" class="btn-salvar">Salvar</button>
                 </form>
             </div>
+        </div>
 
-            <div class="container-contatos">
-                <ul>
-                    <li *ngFor="let usuario of conversasService.retornaContatos()" class="contatos">{{usuario}}</li>
-                </ul>
+        <!---Grupos--->
+        <div class="container-add-group" id="add-group" *ngIf="opcaoEscolhida === 'add-group'">
+            <div class="container-info-grupo" >
+                <div class="btn-fechar">
+                    <img src="assets\icons\fechar-simbolo.png" 
+                    alt="Ícone fechar"
+                    id="icone-fechar"
+                    (click)="fecharDiv()"/>
+                </div>
+                <form (ngSubmit)="criarGrupo()" [formGroup]="user" #formDir="ngForm">
+                    <label for="nome" class="text-nome-grupo">Nome do grupo:</label> <br>
+                    <input type="text" id="nome" class="campo-nome-grupo" formControlName="nomeGrupo"/>
+                    <div *ngIf="nomeUsuario.invalid && formDir.submitted" class="erro-validacao-grupo">
+                        <p *ngIf="nomeUsuario.errors?.['required']">Nome do grupo obrigatório.</p>
+                    </div>
+                    <br><br><br>
+                    <label for="usuarios" class="text-nome-participantes">Nomes dos participantes:</label>
+                    <input type="text" id="usuarios" class="campo-nome-participantes" formControlName="nomeUsuario">
+                    <div *ngIf="nomeUsuario.invalid && formDir.submitted" class="erro-validacao-participantes">
+                        <p *ngIf="nomeUsuario.errors?.['required']">Nome do usuário obrigatório.</p>
+                    </div>
+                    <button type="submit" class="btn-criar-grupo">Criar grupo</button>
+                </form>
             </div>
         </div>
 
-        <div class="container-add-user" id="add-group" *ngIf="opcaoEscolhida === 'add-group'">
-
+        <!--Lista de contatos e grupos-->
+        <div class="container-contatos" [ngClass]="{'lista-abaixo': divAberta, 'lista-acima': !divAberta}">
+            <ul>
+                <li *ngFor="let usuario of conversasService.retornaContatos()" class="contatos">{{usuario}}</li>
+            </ul>
         </div>
+
     </div>
 </div>
 

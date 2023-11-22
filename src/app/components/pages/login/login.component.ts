@@ -71,17 +71,25 @@ export class LoginComponent implements OnInit {
         const {usuario, senha} = this.loginForm.value;
         this.loginService.login(usuario, senha).subscribe({
             next: (res: any) => {
-                console.log(res);
-                this.messagesInfo.success("Login efetuado com sucesso.", undefined, {toastClass:'custom-toastr-message'});
-                this.loginForm.reset();
-                this.route.navigate(['chat']);
+                if (res) {
+                    //Operação bem-sucedida.
+                    console.log(res);
+                    this.messagesInfo.success("Login efetuado com sucesso.", undefined, {toastClass:'custom-toastr-message'});
+                    this.loginForm.reset();
+                    this.route.navigate(['chat']);
+                } else {
+                    //Login e senha não encontrado.
+                    this.messagesInfo.error("Verifique email e senha.", undefined, {toastClass: 'custom-toastr-message'});
+                }
             },
             error: (err: any) => {
                 console.log(err);
-                if (err.status == 401 || err.error && err.error.status == 401) {
+                if (err.status === 401 || err.error && err.error.status === 401) {
+                    //Falha na autentificação.
                     this.messagesInfo.error("Verifique email e senha.", undefined, {toastClass:'custom-toastr-message'});
                 } else {
-                    this.messagesInfo.error("Erro no login. Tente novamente mais tarde.", undefined, {toastClass:'custom-toastr-message'});
+                    //Qualquer outro erro.
+                    this.messagesInfo.error("Erro no login. Tente novamente.", undefined, {toastClass:'custom-toastr-message'});
                 }
             }
         })
